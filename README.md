@@ -9,8 +9,8 @@ One Next.js app contains all three deliverables:
 | `/chat`      | **Redesigned web app** (Task 1)               | Send a prompt, turn on **Compare**, press `Ctrl/⌘ + K`, pin/rename/delete chats |
 | `/extension` | **Chrome extension concept** (Task 3)         | Click a quick action, type `/`, **highlight text in the article**, open Settings |
 
-**Live demo:** _add your Vercel URL here_
-**Repository:** _add your GitHub URL here_
+**Live demo:** https://echogpt-redesign1.vercel.app/
+**Repository:** https://github.com/adibaruet/echogpt-redesign
 
 ---
 
