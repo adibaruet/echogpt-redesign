@@ -64,7 +64,7 @@ export function SiteFooter() {
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-faint sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>© {new Date().getFullYear()} EchoGPT by AppifyDevs. All rights reserved.</p>
-          <p>Made with care in Dhaka.</p>
+
         </div>
       </div>
     </footer>
