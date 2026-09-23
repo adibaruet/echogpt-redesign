@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* Class-based dark mode, toggled on <html> by the inline theme script + ThemeToggle */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #ffffff;
+  --bg-subtle: #f8f7fc;
+  --surface: #ffffff;
+  --surface-2: #f3f1fa;
+  --surface-3: #ebe8f5;
+  --line: #e6e2f0;
+  --line-strong: #d4cfe3;
+  --fg: #15121f;
+  --muted: #5b5670;
+  --faint: #736e86;
+  --brand: #6a3de8;
+  --brand-hover: #5a2fd4;
+  --brand-fg: #ffffff;
+  --brand-soft: #f0ebff;
+  --brand-soft-fg: #5327c9;
+  --accent: #e8467c;
+  --success: #12805c;
+  --warning: #b45309;
+  --danger: #d12b43;
+  --shadow-color: 250 30% 30%;
+  --ring: #7c56f5;
+}
+
+.dark {
+  --bg: #0b0a10;
+  --bg-subtle: #100e17;
+  --surface: #14121c;
+  --surface-2: #1b1825;
+  --surface-3: #242031;
+  --line: #29253a;
+  --line-strong: #3a3550;
+  --fg: #f2f0f8;
+  --muted: #aaa5bd;
+  --faint: #8a8599;
+  --brand: #7c56f5;
+  --brand-hover: #8b68ff;
+  --brand-text: #a58bff;
+  --brand-fg: #ffffff;
+  --brand-soft: #231b3f;
+  --brand-soft-fg: #c7b6ff;
+  --accent: #ff6b9a;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #fb7185;
+  --shadow-color: 260 60% 2%;
+  --ring: #a58bff;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-fg: var(--brand-fg);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-soft-fg: var(--brand-soft-fg);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-ring: var(--ring);
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+  --shadow-soft: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 4px 16px -4px hsl(var(--shadow-color) / 0.1);
+  --shadow-lift: 0 2px 4px hsl(var(--shadow-color) / 0.06), 0 16px 40px -12px hsl(var(--shadow-color) / 0.22);
+  --animate-blink: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ---------- Base ---------- */
+html {
+  color-scheme: light;
+  -webkit-tap-highlight-color: transparent;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+/* In dark mode the brand fill is tuned for white-on-brand buttons (AA 4.6:1);
+   brand-coloured text uses a lighter shade so it also passes AA on dark surfaces. */
+.dark .text-brand {
+  color: var(--brand-text);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--brand) 28%, transparent);
+}
+
+/* Visible, consistent focus ring for keyboard users only (in base layer so utilities can override) */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Slim scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--line) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--line) 70%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--brand) 10%, var(--accent) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
