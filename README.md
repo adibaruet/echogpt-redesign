@@ -2,7 +2,7 @@
 
 A frontend redesign of the EchoGPT ecosystem, built for the **AppifyDevs Frontend Engineering Internship** assignment. One Next.js app contains all three deliverables.
 
-** Live demo:** https://echogpt-redesign1.vercel.app/
+**Live demo:** https://echogpt-redesign1.vercel.app/
 **Repository:** https://github.com/adibaruet/echogpt-redesign
 
 | Route | Deliverable | What to try |
