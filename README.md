@@ -76,7 +76,7 @@ I reviewed the live web app (chat home and sign-in screens) and the Chrome Web S
 
 ## 2. What was built
 
-### 🖥️ Web app (`/chat`)
+### Web app (`/chat`)
 
 - **Streaming responses** with a typing indicator, blinking cursor and a **Stop** button (uses `AbortController`).
 - **Compare mode** — one prompt goes to two models in parallel; results render side by side, with "Prefer this" to continue with the winner.
@@ -88,13 +88,13 @@ I reviewed the live web app (chat home and sign-in screens) and the Chrome Web S
 - **Deep links** — `/chat?model=claude`, `/chat?compare=1` (used by the landing page CTAs).
 - **Responsive** — collapsible sidebar on desktop (`Ctrl/⌘ + B`), slide-in drawer on mobile, compare view stacks on small screens.
 
-### 🏠 Landing page (`/`)
+### Landing page (`/`)
 
 Hero with an animated product mock, Features, an interactive **AI Models explorer** (tabs with speed/reasoning meters), **Product preview** (tabs for web app and extension), **Why EchoGPT** (reasons + comparison table), **Pricing** with a monthly/yearly toggle, Testimonials, **FAQ accordion**, CTA band and footer.
 
 > Product visuals are built in HTML/CSS rather than images, so they stay sharp at any size, follow the theme, and add almost no weight.
 
-### 🧩 Chrome extension concept (`/extension`)
+###  Chrome extension concept (`/extension`)
 
 An interactive browser mock with the redesigned **side panel**:
 
